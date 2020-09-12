@@ -13,7 +13,6 @@ function bootstrapServer(): Promise<Server> {
   const adapter = new ExpressAdapter(expressApp)
   return NestFactory.create(AppModule, adapter)
     .then(app => {
-      app.enableCors()
       app.init()
     })
     .then(() => serverless.createServer(expressApp))
