@@ -1,13 +1,20 @@
-import { Controller, Get } from '@nestjs/common'
+import { Request } from 'express'
+import { Controller, Get, Req, Param } from '@nestjs/common'
 import { StoreService } from '../services/storeService'
 import { Store } from '../models/store'
 
-@Controller('/stores')
+@Controller('/stores/')
 export class StoreController {
   constructor(private readonly storeService: StoreService) {}
 
-  @Get('/:id')
-  getStore(): Store {
-    return this.storeService.findStore()
+  @Get(':id')
+  async getStore(@Param() params): Promise<Store | undefined> {
+    const store : Store | undefined =  await this.storeService.findStore(params.id)
+
+    if (!store) {
+      return undefined
+    }
+
+    return store
   }
 }

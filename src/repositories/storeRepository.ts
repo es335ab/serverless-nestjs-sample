@@ -8,11 +8,4 @@ export class StoreRepository extends Repository<Store> {
   constructor() {
     super(TableName.Store)
   }
-
-  public findStore() {
-    return {
-      id: 'abcde',
-      name: '店舗名'
-    } as Store
-  }
 }
