@@ -14,7 +14,7 @@ const client = IS_OFFLINE
 
 async function insertStores() {
   for (let i = 0, l = stores.length; i < l; i++) {
-    const result = await this.client.put({
+    const result = await client.put({
       TableName: TableName.Store,
       Item: stores[i]
     })
