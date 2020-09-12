@@ -1,4 +1,4 @@
-service: serverless-nestjs-sample
+service: sls-nest-abe07
 
 provider:
   name: aws
@@ -9,7 +9,7 @@ plugins:
   - serverless-layers
 custom:
   serverless-layers:
-    layersDeploymentBucket: nestjs-lambda-layers
+    layersDeploymentBucket: nest-lambda-layers-abe07
 
 package:
   individually: true

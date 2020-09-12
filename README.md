@@ -31,6 +31,10 @@
 ## Installation
 
 ```bash
+$ yarn global add serverless && yarn global add @nestjs/cli
+```
+
+```bash
 $ yarn install
 ```
 
@@ -58,6 +62,31 @@ $ yarn test:e2e
 
 # test coverage
 $ yarn test:cov
+```
+
+## AWS Configure
+
+You can execute command below, then these credentials set to ~/.aws/credentials as [default]
+```
+$ serverless config credentials --provider aws --key EXAMPLE --secret EXAMPLEKEY
+```
+or you can set your credentials to ~/.aws/credentials as [your aws profile] and set below option to every serverless command.
+```
+--aws-profile [your aws profile]
+```
+※ `~/.aws/credentials`には`[default]`のprofileが存在しなくてはなりません。
+
+### Deploy to AWS Development Environment
+
+### build
+
+```
+$ nest build
+```
+
+#### Deploy
+```
+$ serverless deploy
 ```
 
 ## Support
